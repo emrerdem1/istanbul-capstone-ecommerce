@@ -95,6 +95,8 @@ $searchBlockIndex: 105;
   padding-top: 20px;
   padding-bottom: 20px;
 
+  @include resetAnchorHover(initial, initial);
+
   img {
     display: block;
     margin: auto;
