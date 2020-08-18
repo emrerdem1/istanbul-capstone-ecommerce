@@ -22,6 +22,7 @@ export default function SignUp() {
       name: userName,
       isAdmin: false,
     });
+    window.location.href = "/";
   };
 
   return (

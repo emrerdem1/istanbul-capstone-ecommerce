@@ -26,7 +26,9 @@ const handleQuantitySubtraction = (data) => {
   for (let i = 0; i < copyOfData.length; i++) {
     const currentItemId = data[i].id;
     if (copyOfData[i].id === currentItemId) {
-      copyOfData[i].quantity--;
+      if (copyOfData[i].quantity >= 1) {
+        copyOfData[i].quantity--;
+      }
     }
   }
   return copyOfData;
@@ -99,8 +101,8 @@ export const logOut = () => {
   return { type: LOG_OUT };
 };
 
-export const logInError = (payload) => {
-  return { type: LOGIN_ERROR, payload };
+export const logInError = (isFailed, isSucceeded) => {
+  return { type: LOGIN_ERROR, isFailed, isSucceeded };
 };
 
 export const popUpStatus = (payload) => {
