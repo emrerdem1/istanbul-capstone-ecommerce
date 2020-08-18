@@ -91,6 +91,21 @@ const LogInForm = () => {
     }
   };
 
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const userObject = await db.collection("users").doc(user.uid).get();
+        const { name: nameFromSignUpForm, isAdmin } = userObject.data();
+        user.updateProfile({
+          displayName: nameFromSignUpForm,
+        });
+        dispatch(logIn(user.displayName, isAdmin));
+      } else {
+        dispatch(logOut());
+      }
+    });
+  }, []);
+
   const handleClick = (e) => {
     setAuthErrorTargetUi(e.target);
   };
