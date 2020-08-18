@@ -135,10 +135,11 @@
   .quantity {
     grid-row: 4;
     grid-column: 2/4;
-    font-size: 120%;
-    padding-top: 20px;
+    font-size: 100%;
+    padding-top: 26px;
     margin-left: 5px;
     padding-left: 25px;
+    align-self: center;
   }
 
   .productSizes {
@@ -400,4 +401,8 @@
       grid-row: 6/7;
     }
   }
+}
+
+.sliderSectionWrapper {
+  @include resetAnchorHover(initial, initial);
 }
