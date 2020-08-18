@@ -3,7 +3,6 @@ import { auth } from "../../config/firebaseConfig";
 import db from "../../config/firebaseConfig";
 import "./signUp.scss";
 import AccessCheck from "../../common/AccessCheck";
-import { NavLink } from "react-router-dom";
 
 export default function SignUp() {
   const createNewUser = async (e) => {
@@ -23,6 +22,7 @@ export default function SignUp() {
       name: userName,
       isAdmin: false,
     });
+    window.location.href = "/";
   };
 
   return (
@@ -61,9 +61,8 @@ export default function SignUp() {
               required
             />
           </label>
-          <NavLink to="/">
-            <button className="signUpFormBtn">Sign Up</button>
-          </NavLink>
+
+          <button className="signUpFormBtn">Sign Up</button>
         </form>
       </div>
     </>
