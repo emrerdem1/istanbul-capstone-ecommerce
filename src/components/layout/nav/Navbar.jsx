@@ -26,6 +26,8 @@ import { ADMIN } from "../../../containers/Route.paths.js";
 
 const ALERT_OPEN_SECONDS = 2500;
 
+const CLOSE_MODAL_AFTER = 2500;
+
 function navbarIconsReducer(state, action) {
   switch (action.type) {
     case IS_LANGUAGE_DROPDOWN_OPENED:
@@ -97,6 +99,7 @@ const Navbar = () => {
     setNavbarWithTransparentBackground,
   ] = useState(false);
   const [scrollStateOnTop, setScrollStateOnTop] = useState(true);
+  let location = useLocation();
 
   const [
     {
@@ -325,8 +328,6 @@ const Navbar = () => {
     return classNames.join(" ");
   };
 
-  let location = useLocation();
-
   useEffect(() => {
     navBarClassForLocation(location.pathname);
     changeNavbarClassNameOnScroll(location.pathname);
@@ -335,10 +336,12 @@ const Navbar = () => {
 
   useEffect(() => {
     if (currentPopUpStatus && isSignUpBoxOpen) {
-      handleStatus(IS_SIGNUP_OPENED);
-      if (isAdmin) {
-        history.push(ADMIN);
-      }
+      setTimeout(() => {
+        handleStatus(IS_SIGNUP_OPENED);
+        if (isAdmin) {
+          history.push(ADMIN);
+        }
+      }, CLOSE_MODAL_AFTER);
     }
     if (isLoggedInBoxOpen && !isSignUpBoxOpen && !isLoggedIn) {
       handleStatus(IS_SIGNUP_OPENED);
