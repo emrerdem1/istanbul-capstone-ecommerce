@@ -24,22 +24,20 @@ const LogInForm = () => {
   const { isLoggedIn, isAuthFailed, isAuthSucceeded } = useSelector(
     (state) => state.authentication
   );
+
   const dispatch = useDispatch();
   const [passwordValue, setPasswordValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [authErrorTargetUi, setAuthErrorTargetUi] = useState(null);
   const authAlertContainerUi = useRef(null);
   const [isValidating, setIsValidating] = useState(false);
-  const [isLogOut, setIsLogOut] = useState(null);
 
   const userLogout = (e) => {
     e.preventDefault();
     auth.signOut().then(() => {
       dispatch(logOut());
-      setIsLogOut(true);
       dispatch(logInError(false, false));
       dispatch(popUpStatus(false));
-      setTimeout(() => setIsLogOut(false), ALERT_OPEN_SECONDS);
     });
   };
 
@@ -53,24 +51,43 @@ const LogInForm = () => {
         passwordValue
       );
     } catch (error) {
-      dispatch(logInError(true));
+      dispatch(logInError(true, false));
       setIsValidating(false);
-      setTimeout(() => dispatch(logInError(false)), ALERT_OPEN_SECONDS);
+      setTimeout(() => dispatch(logInError(false, false)), ALERT_OPEN_SECONDS);
     }
 
     if (userLogin) {
-      const loggedInUserName = await db
+      await db
         .collection("users")
         .doc(userLogin.user.uid)
-        .get();
-      setIsValidating(false);
-      dispatch(logInError(false, true));
-      setIsLogOut(false);
-      dispatch(
-        logIn(loggedInUserName.data().name, loggedInUserName.data().isAdmin)
-      );
-      dispatch(popUpStatus(true));
-      setTimeout(() => dispatch(logInError(false, false)), ALERT_OPEN_SECONDS);
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            setIsValidating(false);
+            dispatch(logIn(doc.data().name, doc.data().isAdmin));
+            dispatch(popUpStatus(true));
+            dispatch(logInError(false, true));
+            setTimeout(
+              () => dispatch(logInError(false, false)),
+              ALERT_OPEN_SECONDS
+            );
+          } else {
+            dispatch(logInError(true, false));
+            setIsValidating(false);
+            setTimeout(
+              () => dispatch(logInError(false, false)),
+              ALERT_OPEN_SECONDS
+            );
+          }
+        })
+        .catch((error) => {
+          dispatch(logInError(true, false));
+          setIsValidating(false);
+          setTimeout(
+            () => dispatch(logInError(false, false)),
+            ALERT_OPEN_SECONDS
+          );
+        });
     }
   };
 
@@ -174,32 +191,17 @@ const LogInForm = () => {
     </Button>
   );
 
-  const logOutUi = (
-    <Overlay
-      show={isLogOut}
-      target={authErrorTargetUi}
-      placement="bottom"
-      container={authAlertContainerUi.current}
-      containerPadding={20}
-    >
-      <Popover>
-        <Popover.Title as="h2" className="authLogOutText">
-          Logged out! We'll miss you!
-        </Popover.Title>
-      </Popover>
-    </Overlay>
-  );
-
   return (
     <>
       <Col className="signupForm">
         <Form onSubmit={handleOnSubmit} ref={authAlertContainerUi}>
-          {emailGroup}
-          {passwordGroup}
-          {isValidating ? validationButton : loginButton}
-          {isAuthFailed && authErrorUi}
-          {isAuthSucceeded && authSuccessUi}
-          {isLogOut && logOutUi}
+          <fieldset disabled={isAuthSucceeded}>
+            {emailGroup}
+            {passwordGroup}
+            {isValidating ? validationButton : loginButton}
+            {isAuthFailed && authErrorUi}
+            {isAuthSucceeded && authSuccessUi}
+          </fieldset>
         </Form>
       </Col>
     </>
