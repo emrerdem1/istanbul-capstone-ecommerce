@@ -48,7 +48,7 @@ export default function SignUp() {
               name="email"
               type="email"
               className="signUpFormInput"
-              requirednk
+              required
             />
           </label>
 
@@ -62,7 +62,6 @@ export default function SignUp() {
             />
           </label>
           <NavLink to="/">
-            {" "}
             <button className="signUpFormBtn">Sign Up</button>
           </NavLink>
         </form>
