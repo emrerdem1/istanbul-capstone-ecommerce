@@ -214,13 +214,13 @@ const Navbar = () => {
     </Overlay>
   );
 
-  const checkUserLoggedInUi = isLoggedIn ? "userLoggedIn" : "";
+  const loggedInUserClassName = isLoggedIn ? "userLoggedIn" : "";
 
   const fullNavbarMenu = (
     <Row
       className={`navbarItemWrapper collapseMenuItems ${
         isHamburgerOpen ? "hamburgerOpened" : ""
-      } ${checkUserLoggedInUi}`}
+      } ${loggedInUserClassName}`}
     >
       <NavLink exact to="/" className="navbarLogoWrapper">
         <div className="navbarLogo"></div>
