@@ -51,32 +51,6 @@ const CartDetail = (props) => {
     }
   };
 
-  const cartDetailHeaderRow = (
-    <Row className="cartDetailHeader">
-      <Col className="cartDetailTitle">Shopping Card (X Items)</Col>
-      <Col className="backToShoppingWrapper">
-        <Button className="backToShopping">Back to Shopping!</Button>
-      </Col>
-    </Row>
-  );
-
-  const titleHeaderRow = (
-    <Row className="titleHeader">
-      <Col
-        xl={6}
-        lg={6}
-        md={6}
-        sm={6}
-        xs={6}
-        className="productsHeader titleHeaderItem"
-      >
-        Products
-      </Col>
-      <Col className="quantityHeader titleHeaderItem">Quantity</Col>
-      <Col className="priceHeader titleHeaderItem">Price</Col>
-    </Row>
-  );
-
   const productDetailCols = (
     <>
       <Col
@@ -146,9 +120,7 @@ const CartDetail = (props) => {
   );
 
   return (
-    <Container className="cartDetailWrapper">
-      {cartDetailHeaderRow}
-      {titleHeaderRow}
+    <Container className="cartDetailWrapper cartInsideWrapper">
       <Row className="cartDetailMain">{productDetailCols}</Row>
     </Container>
   );
