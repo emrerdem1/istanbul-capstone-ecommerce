@@ -117,12 +117,13 @@ const Navbar = () => {
     isHamburgerOpen: false,
     isLoggedInBoxOpen: false,
   });
-
+  const loggedInUserClassName = isLoggedIn ? "userLoggedIn" : "";
+  const hamburgerOpenedClassName = isHamburgerOpen ? "hamburgerOpened" : "";
   const handleStatus = (type) => localeDispatch({ type });
 
   const hamburgerMenu = (
     <Row
-      className={`hamburgerContainer navbarItemWrapper ${
+      className={`hamburgerContainer navbarItemWrapper ${hamburgerOpenedClassName} ${
         isSearchBoxOpen ? "hamburgerContainerWithSearch" : ""
       }`}
       onClick={() => handleStatus(IS_HAMBURGER_OPENED)}
@@ -214,13 +215,9 @@ const Navbar = () => {
     </Overlay>
   );
 
-  const loggedInUserClassName = isLoggedIn ? "userLoggedIn" : "";
-
   const fullNavbarMenu = (
     <Row
-      className={`navbarItemWrapper collapseMenuItems ${
-        isHamburgerOpen ? "hamburgerOpened" : ""
-      } ${loggedInUserClassName}`}
+      className={`navbarItemWrapper collapseMenuItems ${hamburgerOpenedClassName} ${loggedInUserClassName}`}
     >
       <NavLink exact to="/" className="navbarLogoWrapper">
         <div className="navbarLogo"></div>

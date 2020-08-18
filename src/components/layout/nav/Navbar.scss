@@ -222,7 +222,7 @@ $closeSignUpIconIndex: 105;
 
 @include media(tablet-sm) {
   .navbar {
-    width: 200px;
+    width: 250px;
     height: 100%;
     min-height: 100%;
     right: 0;
@@ -254,10 +254,6 @@ $closeSignUpIconIndex: 105;
         transform: translateX(0px);
         width: 100%;
       }
-    }
-
-    .hamburgerContainer {
-      background-color: transparent;
     }
 
     .hamburgerContainer {
@@ -301,6 +297,11 @@ $closeSignUpIconIndex: 105;
           right: 0;
         }
       }
+
+      &.hamburgerOpened {
+        background-color: transparent;
+        margin-top: 10px !important;
+      }
     }
 
     .navbarLogoWrapper {
@@ -325,6 +326,7 @@ $closeSignUpIconIndex: 105;
       .navLinkCol {
         border-bottom: 0.1px solid #f5deb378;
         transition: all 1.5s ease-in-out;
+        max-height: 60px !important;
 
         .navLinkWrapper {
           @include flexCenter;
