@@ -171,7 +171,7 @@ const Navbar = () => {
 
   const shoppingCart = (
     <NavLink to="/shoppingcart" className="shoppingCartIconContainer">
-      <i className="fas fa-shopping-cart"></i>
+      <i className="fas fa-shopping-cart shoppingCartIcon"></i>
     </NavLink>
   );
 
@@ -211,11 +211,13 @@ const Navbar = () => {
     </Overlay>
   );
 
+  const checkUserLoggedInUi = isLoggedIn ? "userLoggedIn" : "";
+
   const fullNavbarMenu = (
     <Row
       className={`navbarItemWrapper collapseMenuItems ${
         isHamburgerOpen ? "hamburgerOpened" : ""
-      }`}
+      } ${checkUserLoggedInUi}`}
     >
       <NavLink exact to="/" className="navbarLogoWrapper">
         <div className="navbarLogo"></div>
