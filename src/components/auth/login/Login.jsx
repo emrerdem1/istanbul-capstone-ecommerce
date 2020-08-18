@@ -104,7 +104,7 @@ const LogInForm = () => {
         dispatch(logOut());
       }
     });
-  }, []);
+  }, [dispatch]);
 
   const handleClick = (e) => {
     setAuthErrorTargetUi(e.target);
