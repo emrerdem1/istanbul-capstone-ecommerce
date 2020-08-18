@@ -9,6 +9,14 @@ $secondaryBackground: #cecceb;
   align-items: center;
 }
 
+.shoppingListItemContainer {
+  width: calc(100% - 320px);
+
+  .btn-primary {
+    margin: 0 !important;
+  }
+}
+
 .shoppingCartWrapper * {
   margin: 0;
   padding: 0;
@@ -34,7 +42,6 @@ $secondaryBackground: #cecceb;
   }
 
   .cartDetailWrapper {
-    width: calc(100% - 350px);
     min-height: 300px;
     height: auto;
     background-color: $primalBackground;
@@ -157,4 +164,40 @@ $secondaryBackground: #cecceb;
       }
     }
   }
+}
+
+.cartOutsideWrapper {
+  min-height: auto !important;
+  width: calc(100% - 25px) !important;
+}
+
+.cartInsideWrapper {
+  position: relative;
+
+  .cartDetailMain {
+    margin-bottom: 10px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: calc(100% - 25px);
+      background-color: #464b5b;
+      bottom: 15px;
+    }
+  }
+}
+
+.cartItemDetailMapping {
+  width: calc(100% - 25px);
+  margin-left: 25px;
+  min-height: 150px;
+  background-color: $primalBackground;
+}
+
+.emptyCartWarning {
+  display: inline-block;
+  margin: auto;
+  height: 20px;
+  color: rgb(73, 71, 71);
 }
