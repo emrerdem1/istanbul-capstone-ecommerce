@@ -17,7 +17,7 @@ $loggedInFormIndex: 104;
   filter: drop-shadow(0 0 0.4rem black);
   border-radius: 4px;
   margin-right: 2vw !important;
-  right: 4vw;
+  right: 0;
   font-size: 15px;
 
   @include resetAnchorHover(initial, initial);
@@ -74,6 +74,24 @@ $loggedInFormIndex: 104;
 
   @include media(tablet) {
     margin-right: 0 !important;
-    right: 4.5vw;
+    right: 2vw;
+  }
+
+  @include media(tablet-sm) {
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 5px;
+  }
+
+  @include media(phone) {
+    right: 3vw;
+    margin-top: 25px;
+  }
+
+  @include media(phone-sm) {
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
+    margin-top: -25px;
   }
 }
