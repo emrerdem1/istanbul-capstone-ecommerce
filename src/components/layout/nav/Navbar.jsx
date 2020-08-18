@@ -84,7 +84,7 @@ function navbarIconsReducer(state, action) {
 
 const Navbar = () => {
   const history = useHistory();
-  const isAdmin = useSelector((state) => state.authentication.isAdmin);
+  const { isAdmin, userName } = useSelector((state) => state.authentication);
   const shoppingCartUiContainer = useRef(null);
   const isLoggedIn = useSelector((state) => state.authentication.isLoggedIn);
   const currentPopUpStatus = useSelector((state) => state.modal.isPopUpClosed);
@@ -276,7 +276,7 @@ const Navbar = () => {
               <Col className="loggedInTabText loggedProfileText">
                 My Profile
               </Col>
-              <Col className="loggedInTabText loggedUserName">Emre Erdem</Col>
+              <Col className="loggedInTabText loggedUserName">{userName}</Col>
             </Col>
             <Col className="loggedInTabCol loggedInIconsContainer">
               <i className="fas fa-arrow-down loggedArrowIcon navbarIcon"></i>

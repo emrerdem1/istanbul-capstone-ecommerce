@@ -27,7 +27,12 @@ const AccessCheck = () => {
           return REDIRECT_TO_HOME;
         }
         break;
-      case SHOPPING_CART || PROFILE:
+      case SHOPPING_CART:
+        if (!isLoggedIn) {
+          return REDIRECT_TO_HOME;
+        }
+        break;
+      case PROFILE:
         if (!isLoggedIn) {
           return REDIRECT_TO_HOME;
         }
