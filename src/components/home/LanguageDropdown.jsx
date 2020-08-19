@@ -12,7 +12,7 @@ export default function LanguageDropdown() {
     <Col className="languageDropdown">
       <select onChange={(e) => setLanguage(e.target.value)}>
         <option value="en">EN</option>
-        <option value="ar">TR</option>
+        <option value="tr">TR</option>
       </select>
     </Col>
   );

@@ -50,7 +50,7 @@ const authenticationReducer = (state = {}, action) => {
     case LOG_OUT:
       return {
         ...state,
-        userName: {},
+        userName: null,
         isLoggedIn: false,
         isAdmin: false,
         isAuthFailed: false,

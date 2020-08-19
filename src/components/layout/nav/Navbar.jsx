@@ -11,6 +11,7 @@ import NavigationTabOnLogin from "./NavigationTabOnLogin.jsx";
 import "./Navbar.scss";
 import LanguageDropdown from "../../home/LanguageDropdown";
 import ClickAwayListener from "react-click-away-listener";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { popUpStatus } from "../../redux/actions/index";
@@ -25,7 +26,6 @@ import {
 import { ADMIN } from "../../../containers/Route.paths.js";
 
 const ALERT_OPEN_SECONDS = 2500;
-
 const CLOSE_MODAL_AFTER = 2500;
 
 function navbarIconsReducer(state, action) {
@@ -45,6 +45,7 @@ function navbarIconsReducer(state, action) {
         isSignUpBoxOpen: !state.isSignUpBoxOpen,
         isSearchBoxOpen: false,
         isLoggedInBoxOpen: false,
+        isLanguageDropdownOpen: false,
       };
     case IS_LOGGED_IN_BOX_OPENED:
       return {
@@ -52,6 +53,7 @@ function navbarIconsReducer(state, action) {
         isLoggedInBoxOpen: !state.isLoggedInBoxOpen,
         isSignUpBoxOpen: false,
         isSearchBoxOpen: false,
+        isLanguageDropdownOpen: false,
       };
     case IS_SEARCH_OPENED:
       return {
@@ -59,6 +61,7 @@ function navbarIconsReducer(state, action) {
         isSearchBoxOpen: !state.isSearchBoxOpen,
         isSignUpBoxOpen: false,
         isLoggedInBoxOpen: false,
+        isLanguageDropdownOpen: false,
       };
 
     case IS_HAMBURGER_OPENED:
@@ -67,6 +70,7 @@ function navbarIconsReducer(state, action) {
         isSignUpBoxOpen: false,
         isSearchBoxOpen: false,
         isLoggedInBoxOpen: false,
+        isLanguageDropdownOpen: false,
       };
 
     case CLICK_AWAY:
@@ -75,6 +79,7 @@ function navbarIconsReducer(state, action) {
         isSignUpBoxOpen: false,
         isSearchBoxOpen: false,
         isLoggedInBoxOpen: false,
+        isLanguageDropdownOpen: false,
       };
 
     default:
@@ -83,6 +88,7 @@ function navbarIconsReducer(state, action) {
 }
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const history = useHistory();
   const { isAdmin, userName } = useSelector((state) => state.authentication);
   const shoppingCartUiContainer = useRef(null);
@@ -209,7 +215,7 @@ const Navbar = () => {
     >
       <Popover>
         <Popover.Title as="h2" className="shoppingCartAccessRejected">
-          You need to login first!
+          {t("homepage.loginform.loginFirst")}
         </Popover.Title>
       </Popover>
     </Overlay>
@@ -226,12 +232,12 @@ const Navbar = () => {
       <Row xl={7} lg={7} className="navbarItems">
         <Col className="navLinkCol">
           <NavLink exact to="/" className="navLinkWrapper">
-            <span>Home</span>
+            <span>{t("homepage.navbar.menuHome")}</span>
           </NavLink>
         </Col>
         <Col className="navLinkCol">
           <NavLink to="/about" className="navLinkWrapper">
-            <span>About</span>
+            <span>{t("homepage.navbar.menuAbout")}</span>
           </NavLink>
         </Col>
         <Col className="navLinkCol">
@@ -241,7 +247,7 @@ const Navbar = () => {
         </Col>
         <Col className="navLinkCol">
           <NavLink to="/products" className="navLinkWrapper">
-            <span>Products</span>
+            <span>{t("homepage.navbar.menuProducts")}</span>
           </NavLink>
         </Col>
       </Row>
@@ -273,7 +279,7 @@ const Navbar = () => {
               xs={9}
             >
               <Col className="loggedInTabText loggedProfileText">
-                My Profile
+                {t("homepage.loggedInTab.profileHeader")}
               </Col>
               <Col className="loggedInTabText loggedUserName">{userName}</Col>
             </Col>

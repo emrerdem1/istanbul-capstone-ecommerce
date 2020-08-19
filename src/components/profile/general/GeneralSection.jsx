@@ -8,6 +8,7 @@ const DEFAULT_IMG_SRC =
 
 const GeneralSection = () => {
   const userName = useSelector((state) => state.authentication.userName);
+
   return (
     <Container fluid className="profileGeneralSection">
       <div className="userSectionWrapper">

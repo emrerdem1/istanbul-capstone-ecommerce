@@ -1,0 +1,67 @@
+{
+  "homepage": {
+    "header": {
+      "title": "We Care Your Health",
+      "description": "Cholesterol is a waxy, fat-like substance that's found in all the cells in your body. Your body needs some cholesterol to makehormones and substances that help you digest foods. Your body makes all the cholesterol it needs. Cholesterol is also found in foods from animal sources, such as egg yolks and meat. If you have too much cholesterol in your blood, it can combine with other substances in the blood to form plaque.",
+      "getStarted": "Get Started",
+      "signUp": "Sign Up",
+      "shipping": "Fast Shipping",
+      "shippingInfo": "Have your orders shipped right away!",
+      "education": "Education",
+      "educationInfo": "Learn how to distinct quality products!",
+      "health": "Healthy Life",
+      "healthInfo": "Choose only natural products!"
+    },
+    "navbar": {
+      "menuHome": "Home",
+      "menuAbout": "About",
+      "menuProducts": "Products"
+    },
+    "loginform": {
+      "email": "E-mail address",
+      "emailPlaceholder": "Enter your registered e-mail",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "login": "Log in",
+      "logout": "Log out",
+      "signUp": "Still not a user? Register now!",
+      "loginSocial": "Login or Register using:",
+      "validate": "Validating...",
+      "loginSuccess": "Logged in succesfully!",
+      "loginFailed": "Invalid login or password!",
+      "loginFirst": "You need to login first!"
+    },
+    "loggedInTab": {
+      "profileHeader": "My Profile",
+      "profile": "Profile Page",
+      "logout": "Log out"
+    },
+    "search": {
+      "searchButton": "Search",
+      "liveSearch": "Live search...",
+      "spinner": "Loading...",
+      "emptySearch": "Please type a search term."
+    },
+    "categories": {
+      "categoryHeader": "Categories",
+      "sports": "Sports",
+      "glasses": "Glasses",
+      "setUp": "Set Up",
+      "shoes": "Shoes",
+      "health": "Health",
+      "nutrition": "Nutrition",
+      "personalCare": "Personal Care"
+    }
+  },
+  "about": {
+    "team": "Our Team",
+    "whoAreWe": "Who are we",
+    "descripition": "We are a group of four people who aims to enhance the health of everyone by both strengthening the understanding of healthy life and providing healthy products."
+  },
+  "footer": {
+    "motto": "Your health is in good hands.",
+    "copyright": "All rights reserved.",
+    "blogPost1": "Relieve Stress",
+    "blogPost2": "Morning Exercise"
+  }
+}

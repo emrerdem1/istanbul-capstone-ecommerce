@@ -14,23 +14,22 @@ import {
   popUpStatus,
 } from "../../redux/actions/index";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const ALERT_OPEN_SECONDS = 2500;
-const VALIDATING_TEXT = "Validating...";
-const LOG_IN_TEXT = "Log in";
-const LOG_OUT_TEXT = "Log out";
 
 const LogInForm = () => {
   const { isLoggedIn, isAuthFailed, isAuthSucceeded } = useSelector(
     (state) => state.authentication
   );
-
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [passwordValue, setPasswordValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [authErrorTargetUi, setAuthErrorTargetUi] = useState(null);
   const authAlertContainerUi = useRef(null);
   const [isValidating, setIsValidating] = useState(false);
+  const VALIDATING_TEXT = t("homepage.loginform.validate");
 
   const userLogout = (e) => {
     e.preventDefault();
@@ -97,12 +96,14 @@ const LogInForm = () => {
 
   const emailGroup = (
     <Form.Group controlId="formGroupEmail" className="formGroupEmail">
-      <Form.Label className="formInputLabel">Email address</Form.Label>
+      <Form.Label className="formInputLabel">
+        {t("homepage.loginform.email")}
+      </Form.Label>
       <div className="formInputWrapper">
         <i className="fas fa-user-circle"></i>
         <Form.Control
           type="email"
-          placeholder="Enter email"
+          placeholder={t("homepage.loginform.emailPlaceholder")}
           className="formInput"
           onChange={(e) => setEmailValue(e.target.value)}
         />
@@ -112,12 +113,14 @@ const LogInForm = () => {
 
   const passwordGroup = (
     <Form.Group controlId="formGroupPassword">
-      <Form.Label className="formInputLabel">Password</Form.Label>
+      <Form.Label className="formInputLabel">
+        {t("homepage.loginform.password")}
+      </Form.Label>
       <div className="formInputWrapper">
         <i className="fas fa-key"></i>
         <Form.Control
           type="password"
-          placeholder="Enter your password"
+          placeholder={t("homepage.loginform.passwordPlaceholder")}
           className="formInput"
           onChange={(e) => setPasswordValue(e.target.value)}
         />
@@ -135,7 +138,7 @@ const LogInForm = () => {
     >
       <Popover>
         <Popover.Title as="h2" className="authFailedText">
-          Invalid login or password!
+          {t("homepage.loginform.loginFailed")}
         </Popover.Title>
       </Popover>
     </Overlay>
@@ -151,7 +154,7 @@ const LogInForm = () => {
     >
       <Popover>
         <Popover.Title as="h2" className="authSucceededText">
-          Logged in succesfully!
+          {t("homepage.loginform.loginSuccess")}
         </Popover.Title>
       </Popover>
     </Overlay>
@@ -187,7 +190,9 @@ const LogInForm = () => {
       type="submit"
       onClick={(e) => handleClick(e)}
     >
-      {isLoggedIn ? LOG_OUT_TEXT : LOG_IN_TEXT}
+      {isLoggedIn
+        ? t("homepage.loginform.logout")
+        : t("homepage.loginform.login")}
     </Button>
   );
 
