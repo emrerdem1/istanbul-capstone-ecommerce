@@ -11,6 +11,7 @@ import sterhoscopeImg from "../../assets/img/sterhoscope.jpg";
 import NutritionImg from "../../assets/img/supplements.jpg";
 import selfCareimg from "../../assets/img/selfCare.jpg";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SLIDER_SETTINGS = {
   centerMode: true,
@@ -42,38 +43,39 @@ const SLIDER_SETTINGS = {
   ],
 };
 
-const CATEGORIES_INFO = [
-  {
-    name: "Sports",
-    img: sportImg,
-  },
-  {
-    name: "Glasses",
-    img: glassesImg,
-  },
-  {
-    name: "Set Up",
-    img: setUpImg,
-  },
-  {
-    name: "Shoes",
-    img: shoesImg,
-  },
-  {
-    name: "Health",
-    img: sterhoscopeImg,
-  },
-  {
-    name: "Nutrition",
-    img: NutritionImg,
-  },
-  {
-    name: "Personal Care",
-    img: selfCareimg,
-  },
-];
-
 export default function Categories() {
+  const { t } = useTranslation();
+  const CATEGORIES_INFO = [
+    {
+      name: t("homepage.categories.sports"),
+      img: sportImg,
+    },
+    {
+      name: t("homepage.categories.glasses"),
+      img: glassesImg,
+    },
+    {
+      name: t("homepage.categories.setUp"),
+      img: setUpImg,
+    },
+    {
+      name: t("homepage.categories.shoes"),
+      img: shoesImg,
+    },
+    {
+      name: t("homepage.categories.health"),
+      img: sterhoscopeImg,
+    },
+    {
+      name: t("homepage.categories.nutrition"),
+      img: NutritionImg,
+    },
+    {
+      name: t("homepage.categories.personalCare"),
+      img: selfCareimg,
+    },
+  ];
+
   const Category = (props) => {
     return (
       <div className="card">
@@ -85,7 +87,9 @@ export default function Categories() {
 
   return (
     <div className="categoriesContainer">
-      <h1 className="categoryTitle">Categories</h1>
+      <h1 className="categoryTitle">
+        {t("homepage.categories.categoryHeader")}
+      </h1>
 
       <Slider {...SLIDER_SETTINGS} className="cardWrapper">
         {CATEGORIES_INFO.map((cat) => (

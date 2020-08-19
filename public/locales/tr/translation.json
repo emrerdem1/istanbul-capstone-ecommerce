@@ -25,13 +25,44 @@
       "login": "Giriş",
       "logout": "Çıkış",
       "signUp": "Üye değil misiniz? Hemen kayıt olun!",
-      "loginSocial": "Sosyal Medyayla Giriş Yap veya Kayıt Ol:"
+      "loginSocial": "Sosyal Medyayla Giriş Yap veya Kayıt Ol:",
+      "validate": "Kontrol ediliyor...",
+      "loginSuccess": "Başarıyla giriş yaptınız!",
+      "loginFailed": "Hatalı e-posta veya şifre!",
+      "loginFirst": "Önce giriş yapmalısınız!"
+    },
+
+    "loggedInTab": {
+      "profileHeader": "Profilim",
+      "profile": "Profilim",
+      "logout": "Çıkış Yap"
     },
     "search": {
       "searchButton": "Ara",
       "liveSearch": "Hızlı ara...",
       "spinner": "Yükleniyor...",
       "emptySearch": "Arama için lütfen bir şey yazın."
+    },
+    "categories": {
+      "categoryHeader": "Kategoriler",
+      "sports": "Spor",
+      "glasses": "Gözlük",
+      "setUp": "Donanım",
+      "shoes": "Ayakkabı",
+      "health": "Sağlık",
+      "nutrition": "Beslenme",
+      "personalCare": "Kişisel Bakım"
     }
+  },
+  "about": {
+    "team": "Ekibimiz",
+    "whoAreWe": "Biz Kimiz?",
+    "descripition": "Sağlıklı yaşam konusunda bilinçlendirip sağlık ürünler sunarak yediden yetmişe herkesin sağlığını korumayı amaçlayan dört kişilik bir takımız."
+  },
+  "footer": {
+    "motto": "Sağlığınız emin ellerde.",
+    "copyright": "Tüm hakları saklıdır.",
+    "blogPost1": "Stresten Kurtulun",
+    "blogPost2": "Sabah Egzersizi"
   }
 }

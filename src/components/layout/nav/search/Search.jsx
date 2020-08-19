@@ -6,6 +6,8 @@ import Spinner from "react-bootstrap/Spinner";
 import "./Search.scss";
 import { MOCK_DATABASE } from "../../../common/MockDatabase";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
+import { PRODUCTS } from "../../../../containers/Route.paths";
 
 const ONLY_FIRST_IMAGE_OF_PRODUCTS = 0;
 const AMOUNT_OF_PRODUCT_IN_SEARCH_PREVIEW = 3;
@@ -39,13 +41,18 @@ const Search = () => {
     .slice(0, AMOUNT_OF_PRODUCT_IN_SEARCH_PREVIEW)
     .map((product, idx) => (
       <Col xl={3} lg={3} md={3} className="previewCard" key={idx}>
-        <img src={product.images[ONLY_FIRST_IMAGE_OF_PRODUCTS]} alt="product" />
-        <div className="previewTitle">{product.title}</div>
-        <div className="previewBrand">{product.brand}</div>
-        <div className="previewPrice">
-          {product.currency}
-          {product.price}
-        </div>
+        <NavLink to={`${PRODUCTS}/${product.id}`}>
+          <img
+            src={product.images[ONLY_FIRST_IMAGE_OF_PRODUCTS]}
+            alt="product"
+          />
+          <div className="previewTitle">{product.title}</div>
+          <div className="previewBrand">{product.brand}</div>
+          <div className="previewPrice">
+            {product.currency}
+            {product.price}
+          </div>
+        </NavLink>
       </Col>
     ));
 
@@ -71,7 +78,7 @@ const Search = () => {
             />
           </Col>
           <Col xl={2} lg={2} md={2} className="col-3 searchButtonWrapper">
-            <Button onClick={sendSearchQuery}>
+            <Button onClick={sendSearchQuery} className="searchButton">
               {t("homepage.search.searchButton")}
             </Button>
           </Col>

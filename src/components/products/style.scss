@@ -2,6 +2,9 @@
 
 .productsSectionContainer {
   margin-bottom: 50px;
+  padding-top: 8%;
+  margin-left: 100px;
+  overflow: hidden;
 
   @include resetAnchorHover(initial, initial);
 
@@ -10,6 +13,7 @@
     padding: 40px 40px 20px 80px;
     font-size: 39px;
     color: #2c3648;
+    text-transform: capitalize;
 
     &::before {
       content: "";
@@ -24,9 +28,19 @@
   }
 }
 
+@include media(tablet) {
+  .productsSectionContainer {
+    margin-left: -10px;
+  }
+}
+
 @include media(tablet-sm) {
+  .productsSectionContainer {
+    margin-left: -40px;
+  }
   .productsTitle {
     font-size: 30px !important;
+    margin-left: 70px;
 
     &::before {
       left: 0px !important;
@@ -35,6 +49,9 @@
 }
 
 @include media(phone) {
+  .productsSectionContainer {
+    margin-left: 50px;
+  }
   .productsTitle {
     font-size: 25px !important;
     padding-left: 150px !important;
@@ -46,6 +63,9 @@
 }
 
 @include media(phone-sm) {
+  .productsSectionContainer {
+    margin-left: -40px;
+  }
   .productsTitle {
     padding-left: 120px !important;
   }

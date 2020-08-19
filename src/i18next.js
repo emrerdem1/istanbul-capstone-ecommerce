@@ -4,7 +4,7 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
 const fallbackLanguage = "en";
-const availableLanguages = ["en", "tr", "ar"];
+const availableLanguages = ["en", "tr"];
 
 i18n
   .use(Backend)

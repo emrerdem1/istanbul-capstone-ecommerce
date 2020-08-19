@@ -24,14 +24,44 @@
       "passwordPlaceholder": "Enter your password",
       "login": "Log in",
       "logout": "Log out",
-      "signup": "Still not a user? Register now!",
-      "loginSocial": "Login or Register using:"
+      "signUp": "Still not a user? Register now!",
+      "loginSocial": "Login or Register using:",
+      "validate": "Validating...",
+      "loginSuccess": "Logged in succesfully!",
+      "loginFailed": "Invalid login or password!",
+      "loginFirst": "You need to login first!"
+    },
+    "loggedInTab": {
+      "profileHeader": "My Profile",
+      "profile": "Profile Page",
+      "logout": "Log out"
     },
     "search": {
       "searchButton": "Search",
       "liveSearch": "Live search...",
       "spinner": "Loading...",
       "emptySearch": "Please type a search term."
+    },
+    "categories": {
+      "categoryHeader": "Categories",
+      "sports": "Sports",
+      "glasses": "Glasses",
+      "setUp": "Set Up",
+      "shoes": "Shoes",
+      "health": "Health",
+      "nutrition": "Nutrition",
+      "personalCare": "Personal Care"
     }
+  },
+  "about": {
+    "team": "Our Team",
+    "whoAreWe": "Who are we",
+    "descripition": "We are a group of four people who aims to enhance the health of everyone by both strengthening the understanding of healthy life and providing healthy products."
+  },
+  "footer": {
+    "motto": "Your health is in good hands.",
+    "copyright": "All rights reserved.",
+    "blogPost1": "Relieve Stress",
+    "blogPost2": "Morning Exercise"
   }
 }

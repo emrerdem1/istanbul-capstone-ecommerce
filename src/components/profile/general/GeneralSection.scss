@@ -7,6 +7,7 @@
   justify-content: center;
   background-size: cover;
   background-position: 0 35%;
+  margin-top: 100px;
 
   .userSectionWrapper {
     width: 50%;
@@ -50,6 +51,7 @@
       line-height: 25px;
       margin-top: 10px;
       font-size: 14px;
+      text-transform: capitalize;
     }
   }
 }
